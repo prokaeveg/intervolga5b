@@ -1,0 +1,40 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+tr {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.myTable {
+  border: 0;
+}
+
+.errorText {
+  color: #710707;
+}
+
+.addButton {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 0.4em 1em;
+}
+
+a.mainButton {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: #5f6672;
+  box-shadow: 0 -3px #2e333a inset;
+  transition: 0.2s;
+}
+a.mainButton:hover {
+  background: #2e333a;
+}
+
+/*# sourceMappingURL=main.css.map */

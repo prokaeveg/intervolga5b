@@ -1,0 +1,53 @@
+$fontStack:    Helvetica, sans-serif;
+$primaryColor: #333;
+$errorTextColor: #710707;
+$linkBackgroundColor: #5f6672;
+$linkAccentColor: #2e333a;
+
+body
+{
+  font: 100% $fontStack;
+  color: $primaryColor;
+}
+
+tr
+{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.myTable
+{
+  border: 0;
+}
+
+.errorText
+{
+  color: $errorTextColor;
+}
+
+
+.addButton
+{
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 0.4em 1em;
+}
+
+a.mainButton
+{
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: $linkBackgroundColor;
+  box-shadow: 0 -3px $linkAccentColor inset;
+  transition: 0.2s;
+
+  &:hover
+  {
+    background: $linkAccentColor;
+  }
+}

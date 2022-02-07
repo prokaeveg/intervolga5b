@@ -1,5 +1,9 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/php/connect.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/php/db.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
+
+$db = new DB(DB_HOST, DB_USER, DB_PASS);
+
 if (isset($_POST['submit']))
 {
     //получаем переменные и проверяем их
@@ -24,10 +28,18 @@ if (isset($_POST['submit']))
         <?php
     } else
     {
-        $query = $dbConnection->prepare('INSERT INTO countries(country_name, capital_name) VALUES(:country, :capital)');
-        $query->bindparam(':country', $countryName);
-        $query->bindparam(':capital', $capitalName);
-        $query->execute(array(':country' => $countryName, ':capital' => $capitalName));
+        $query = 'INSERT INTO countries(
+                         country_name,
+                         capital_name
+                        ) VALUES(
+                        :country,
+                        :capital
+                        )';
+        $args = [
+                'country' => $countryName,
+                'capital' => $capitalName
+        ];
+        $db->sql($query, $args);
 
         //возврат на главную страницу при успешном добавлении записи в базу данных ?>
         <script type="text/javascript">

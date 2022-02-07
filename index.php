@@ -1,9 +1,14 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/php/connect.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/functions/functions.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/php/db.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
+
 //базовый запрос на выборку всех стран из базы данных в алфавитном порядке
-$result = $dbConnection->query("SELECT * FROM countries ORDER BY country_name ASC ");
+$sql = "SELECT country_name, capital_name FROM countries ORDER BY country_name ASC ";
+
+$db = new DB(DB_HOST, DB_USER, DB_PASS);
+
 ?>
     <div class="container">
         <div class="py-5">
@@ -21,11 +26,11 @@ $result = $dbConnection->query("SELECT * FROM countries ORDER BY country_name AS
                             <tbody>
                             <tr>
                                 <?php
-                                while ($row = $result->fetch(PDO::FETCH_ASSOC))
-                                { ?>
+                                $data = $db::getRows($sql);
+                                foreach ($data as $item) { ?>
                             <tr class="d-flex">
-                                <td class="col-6"><?= htmlspecialchars($row['country_name']) ?> </td>
-                                <td class="col-6"><?= htmlspecialchars($row['capital_name']) ?></td>
+                                <td class="col-6"><?= htmlspecialchars($item[0]) ?> </td>
+                                <td class="col-6"><?= htmlspecialchars($item[1]) ?></td>
                             </tr>
                             <?php } ?>
                             </tbody>

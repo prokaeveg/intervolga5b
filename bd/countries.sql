@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 04 2022 г., 16:54
+-- Время создания: Фев 07 2022 г., 16:06
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -46,7 +46,9 @@ INSERT INTO `countries` (`id`, `country_name`, `capital_name`) VALUES
 (10, 'Colombia', 'Bogota'),
 (11, 'Croatia', 'Zagreb'),
 (12, 'Dominican Republic', 'Santo Domingo'),
-(13, 'Haiti', 'Port-au-Prince');
+(13, 'Haiti', 'Port-au-Prince'),
+(14, 'France', 'Paris'),
+(15, 'Poland', 'Warsaw');
 
 --
 -- Индексы сохранённых таблиц
@@ -66,7 +68,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT для таблицы `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
